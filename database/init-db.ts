@@ -18,18 +18,16 @@ const initDb = (pool: Pool) => {
     // client.query(queries.CREATE_SCHEMA, dbLogger)
 
     client.query(queries.CREATE_USERS_TABLE, dbLogger)
+    
+    client.query(queries.CREATE_SHOPPING_CART_TABLE, dbLogger)
 
     client.query(queries.CREATE_ORDERS_TABLE, dbLogger)
+
+    client.query(queries.CREATE_CATEGORIES_TABLE, dbLogger)
 
     client.query(queries.CREATE_PRODUCTS_TABLE, dbLogger)
 
     client.query(queries.CREATE_PRODUCT_REVIEW_TABLE, dbLogger)
-
-    client.query(queries.CREATE_CATEGORIES_TABLE, dbLogger)
-
-    client.query(queries.CREATE_CATEGORY_PRODUCT_TABLE, dbLogger)
-
-    client.query(queries.CREATE_SHOPPING_CART_TABLE, dbLogger)
 
     client.query(queries.CREATE_SHOPPING_CART_ITEM_TABLE, dbLogger)
 
@@ -39,13 +37,34 @@ const initDb = (pool: Pool) => {
 
     client.query(queries.CREATE_SUPPLIERS_TABLE, dbLogger)
 
-    client.query(queries.CREATE_SUPPLIES_DATA_TABLE, dbLogger)
+    client.query(queries.CREATE_SUPPLIES_TABLE, dbLogger)
 
-    //client.query(queries.INIT_ADMINS, dbLogger)
+    client.query(queries.CREATE_SUPPLIES_TO_PRODUCT_TABLE, dbLogger)
 
-  
+    client.query(queries.INIT_USERS, dbLogger)
 
+    client.query(queries.INIT_SUPPLIERS, dbLogger)
 
+    client.query(queries.INIT_SUPPLIES, dbLogger)
+
+    client.query(queries.INIT_CATEGORIES, dbLogger)
+
+    client.query(queries.INIT_PRODUCTS, dbLogger)
+
+    client.query(queries.INIT_SUPPLIES_TO_PRODUCT, dbLogger)
+
+    client.query(queries.INIT_SHOPPING_CART, dbLogger)
+
+    client.query(queries.INIT_SHOPPING_CART_ITEM, dbLogger)
+
+    client.query(queries.INIT_ORDERS, dbLogger)
+    
+    client.query(queries.INIT_COMPLAINTS, dbLogger)
+
+    client.query(queries.INIT_RETURNS, dbLogger)
+
+    client.query(queries.INIT_PRODUCT_REVIEW, dbLogger)
+    
     done()
   })
 }
