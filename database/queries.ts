@@ -1,5 +1,3 @@
-/////
-
 export const CLEANUP = `
       DROP SCHEMA public CASCADE
 `
@@ -12,8 +10,6 @@ export const HANDLE_GRANTS = `
       GRANT ALL ON SCHEMA public TO public;
       COMMENT ON SCHEMA public IS 'standard public schema';
 `
-
-////////
 
 export const CREATE_USERS_TABLE = `CREATE TABLE IF NOT EXISTS users(
   id INT GENERATED ALWAYS AS IDENTITY,
@@ -171,7 +167,10 @@ export const CREATE_SUPPLIES_TABLE =`CREATE TABLE IF NOT EXISTS supplies(
       supplier_id INT NOT NULL,
       create_at DATE NOT NULL,
       update_at DATE NOT NULL,
-      PRIMARY KEY(id)
+      PRIMARY KEY(id),
+      CONSTRAINT fk_suppliers
+            FOREIGN KEY(supplier_id) 
+            REFERENCES suppliers(id)
       )`
 
 export const CREATE_SUPPLIES_TO_PRODUCT_TABLE =`CREATE TABLE IF NOT EXISTS supplies_to_product(
@@ -191,7 +190,7 @@ export const CREATE_SUPPLIES_TO_PRODUCT_TABLE =`CREATE TABLE IF NOT EXISTS suppl
                  
       
 export const INIT_USERS = `INSERT INTO users(role, user_nickname, user_name, user_surname, user_password, user_email, user_phone, user_adress) 
-      VALUES (TRUE, 'marher223', 'Marek', 'Marucha', 'lego22', 'marher223@xyz.com', '+48 777 888 999', 'ul. Piłduskiego 24/2 44-100 Gliwice'), 
+      VALUES (TRUE, 'marher223', 'Marek', 'Marucha', 'lego22', 'marher223@xyz.com', '+48 777 888 999', 'ul. Piłsudskiego 24/2 44-100 Gliwice'), 
       (FALSE,'mathqu8', 'Mateusz', 'Pietrucha', 'len282', 'math@xyz.com', '+48 888 878 799', 'ul. Pszczyńska 100/9 44-100 Gliwice'),
       (FALSE,'smrek', 'Michal', 'Brek', 'calosc993', 'brek@xyz.com', '+48 690 808 799', 'ul. Bielska 30 43-400 Cieszyn'),
       (FALSE,'gurol33', 'Karol', 'Malys', 'gora13', 'maly@xyz.com', '+48 787 808 749', 'ul. Dworcowa 13/54 43-300 Bielsko-Biała'),

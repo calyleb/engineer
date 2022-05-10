@@ -15,8 +15,6 @@ const initDb = (pool: Pool) => {
 
     client.query(queries.HANDLE_GRANTS)
 
-    // client.query(queries.CREATE_SCHEMA, dbLogger)
-
     client.query(queries.CREATE_USERS_TABLE, dbLogger)
     
     client.query(queries.CREATE_SHOPPING_CART_TABLE, dbLogger)
